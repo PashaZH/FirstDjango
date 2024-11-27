@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о товаре</title>
+    <style>
+        .card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            max-width: 400px;
+            margin: 20px auto;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .out-of-stock { color: red; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> | 
+        <a href="/items/">Items</a> | 
+        <a href="/about/">About</a>
+    </nav>
+    
+    <div class="card">
+        <h2>{{ item.name }}</h2>
+        <p><strong>Бренд:</strong> {{ item.brand }}</p>
+        
+        {% if item.count == 0 %}
+            <p class="out-of-stock">Товара нет на складе</p>
+        {% else %}
+            <p><strong>Количество:</strong> {{ item.count }}</p>
+        {% endif %}
+        
+        {% if item.description %}
+            <h3>Описание:</h3>
+            <p>{{ item.description }}</p>
+        {% endif %}
+    </div>
+    
+    <p style="text-align: center;"><a href="/items/">Назад к списку товаров</a></p>
+</body>
+</html>

@@ -1,0 +1,1 @@
+[{"model": "MyApp.item", "pk": 1, "fields": {"name": "Кроссовкии", "brand": "Nike", "count": 10}}, {"model": "MyApp.item", "pk": 2, "fields": {"name": "Футболки", "brand": "Abibas", "count": 7}}, {"model": "MyApp.item", "pk": 3, "fields": {"name": "Трусы", "brand": "Armani", "count": 5}}, {"model": "MyApp.item", "pk": 4, "fields": {"name": "Носки", "brand": "Puma", "count": 5}}]

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список товаров</title>
+    <style>
+        .items-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .item-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .out-of-stock { color: red; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> | 
+        <a href="/items/">Items</a> | 
+        <a href="/about/">About</a>
+    </nav>
+    
+    <h1 style="text-align: center;">Список товаров</h1>
+    
+    <div class="items-container">
+        {% for item in items %}
+            <div class="item-card">
+                <h3>
+                    <a href="/item/{{ item.id }}/">
+                        {{ item.name }}
+                    </a>
+                </h3>
+                <p>{{ item.brand }}</p>
+                
+                {% if item.count == 0 %}
+                    <p class="out-of-stock">Товара нет на складе</p>
+                {% else %}
+                    <p>В наличии: {{ item.count }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
